@@ -8,20 +8,25 @@ class Array
       i = i + 1
     end
   end
-  
+
   def first
     self[0]
   end
   
   def join(sep="")
-    s = ""
-    each do |i|
-      s << sep unless i == first
-      s << i.to_s
+    if size == 0
+      return ""
+    end
+    s = (self[0]).to_s
+    i = 1
+    while i < size
+      s << sep
+      s << (self[i]).to_s
+      i = i + 1
     end
     s
   end
-  
+
   def to_s
     join
   end
